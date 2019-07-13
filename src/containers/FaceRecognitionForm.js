@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form } from 'semantic-ui-react';
 
 export class FaceRecognitionForm extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export class FaceRecognitionForm extends Component {
 
   onChangeInput = (event) => {
     const name = event.target.name;
+    console.log(name)
     this.setState({
       [name] : event.target.value 
     });
@@ -25,10 +27,12 @@ export class FaceRecognitionForm extends Component {
   render() {
     console.log('Form Render');
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input name="query" onChange={this.onChangeInput}/>
-        <button type="submit">Enviar</button>
-      </form>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group>
+          <Form.Input width="14" fluid placeholder='Busca' name="query" onChange={this.onChangeInput} />
+          <Form.Button width="2" content='buscar' />
+        </Form.Group>
+      </Form>
     )
   }
 }

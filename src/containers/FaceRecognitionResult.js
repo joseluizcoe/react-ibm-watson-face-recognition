@@ -4,12 +4,10 @@ import Image from '../components/Image';
 
 export const FaceRecognitionResult = (props) => {
   const { faces, imageUrl } = props;
-  console.log('FaceRecognitionResult');
-  console.log('faces', faces);
   return (
     <div id="image-result">
       {
-        faces && faces.length
+        imageUrl && faces && faces.length
         ? (<>
             <Image src={imageUrl} />
             <Marks marks={faces}/>
